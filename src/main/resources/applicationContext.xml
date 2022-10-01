@@ -22,5 +22,4 @@
     <bean id="user" class="controller.UserController">
         <property name="userService" ref="userService"/>
     </bean>
-
 </beans>

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author WARRIOR
@@ -27,8 +28,20 @@ public class Story {
     @DbField("story_time")
     private Date publishTime;
     @DbField("story_check")
-    protected Integer checkState;
+    private Integer checkState;
     @DbField("story_like")
-    protected Integer likeNum;
+    private Integer likeNum;
+
+    public Story(Integer storyId, User user, Integer storyStatus, String storyContext, Date publishTime, Integer checkState, Integer likeNum) {
+        this.storyId = storyId;
+        this.user = user;
+        this.storyStatus = storyStatus;
+        this.storyContext = storyContext;
+        this.publishTime = publishTime;
+        this.checkState = checkState;
+        this.likeNum = likeNum;
+    }
+
+    private List<StoryImg> storyRelatedImgList;
 
 }
