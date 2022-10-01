@@ -1,0 +1,158 @@
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+    border: none;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(#0f0c29,#302b63,#24243e);
+    /* background-image: linear-gradient(to top, #9890e3 0%, #b1f4cf 100%); */
+    /* background-image: linear-gradient(to top, #5f72bd 0%, #9b23ea 100%); */
+}
+
+main{
+    position: relative;
+    display: flex;
+    margin-top: 150px;
+    justify-content: space-around;
+    /* background-color: #fff; */
+}
+
+.hidden{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,.1);
+    opacity: .9;
+    z-index: -1;
+}
+
+.img-wrapper img{
+    width: 700px;
+    height: 700px;
+}
+
+.shell{
+    position: relative;
+    top: 100px;
+    left: -200px;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* 给最外层添加一个透视，否则翻转会没有3D效果 */
+    perspective: 1000px;
+}
+
+.top{
+    width: 300px;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-evenly;
+}
+
+.off,.on{
+    color: #fff;
+    transition: .5s;
+    font: 300 20px '';
+}
+
+.on{
+   opacity: .5;  
+}
+
+.button{
+    width: 60px;
+    height: 25px;
+    background-color: rgb(255, 235, 167);
+    border-radius: 20px;
+    position: relative;
+}
+
+.ball{
+    position: absolute;
+    left: 0;
+    /* 微调位置，使其完全遮盖住tab栏左侧 */
+    transform: translate(-1px);
+    width: 25px;
+    height: 25px;
+    background-color: rgb(46, 45, 56);
+    border-radius: 50%;
+    transition: .5s;
+    box-shadow: 0 0 10px #000;
+}
+
+.bottom{
+    width: 300px;
+    height: 300px;
+    /* 使元素呈现3D效果 */
+    transform-style: preserve-3d;
+    position: relative;
+    top: 20px;
+    transition: .7s;
+    border-radius: 5px;
+    background-color: azure;
+    /* background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898; */
+    background-blend-mode: multiply,multiply;
+   
+    /* background-image: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */
+}
+
+.bottom>div{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.bottom>div h2{
+    color: #fff;
+}
+
+.bottom>div input{
+    width: 200px;
+    height: 27px;
+    padding: 0 10px;
+    background-color: rgb(31, 32, 41);
+    border-radius: 5px;
+    color: #fff;
+}
+
+.bottom>div button{
+    width: 80px;
+    height: 30px;
+    color: #333;
+    font-size: 15px;
+    background-color: rgb(255, 235, 167);
+    border-radius: 4px;
+    transition: .3s;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.bottom>div button:hover{
+    box-shadow: 0 0 10px rgb(255, 235, 167);
+}
+
+/* 登录框 */
+.signIn{
+    transform: translateZ(70px);
+}
+
+/* 注册框 */
+.signUp{
+    position: absolute;
+    top: 0;
+    /* 使注册框出现在背面 */
+    transform: translateZ(-70px) rotateY(180deg);
+}
