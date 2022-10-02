@@ -31,12 +31,12 @@ public class User {
     @DbField("user_sex")
     private String userSex;
     @DbField("user_status")
-    private Integer userStatus;
+    private String userStatus;
 
     private List<Story> userStoryList;
 
 
-    public User(Integer userId, String username, String phoneNumber, String password, String headPortrait, String userSex, Integer userStatus) {
+    public User(Integer userId, String username, String phoneNumber, String password, String headPortrait, String userSex, String userStatus) {
         this.userId = userId;
         this.username = username;
         this.phoneNumber = phoneNumber;
@@ -44,5 +44,12 @@ public class User {
         this.headPortrait = headPortrait;
         this.userSex = userSex;
         this.userStatus = userStatus;
+    }
+
+
+    public User(String username, String phoneNumber, String password) {
+        this.username = username;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
     }
 }

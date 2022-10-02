@@ -37,7 +37,7 @@ signInBtn.onclick = function(){
         sealAjax({
         url: 'http://localhost:8080/user/login',
         type:'post',
-        data:{username:a,password:b}
+        data:{phoneNumber:a,password:b}
     }).then(res =>{
         if(res.code === 200){
             window.location.href = 'http://localhost:8080/static/html/success.html';

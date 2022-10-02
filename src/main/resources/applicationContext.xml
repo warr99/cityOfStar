@@ -11,7 +11,7 @@
         ]>
 <beans>
     <!-- dao -->
-    <bean id="userDAO" class="dao.UserDAO"/>
+    <bean id="userDAO" class="dao.impl.UserDaoImpl"/>
 
     <!-- service -->
     <bean id="userService" class="service.UserService">

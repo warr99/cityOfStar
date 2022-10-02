@@ -21,7 +21,7 @@ public class ResponseUtil {
     public static <T> void send(HttpServletResponse response, ApiMsg<T> msg) throws IOException {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("msg", msg);
-        //发送给客户端
+        response.setContentType("text/json;charset=utf-8");
         response.getWriter().write(jsonObject.toJSONString());
     }
 

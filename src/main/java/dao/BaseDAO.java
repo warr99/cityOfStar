@@ -266,8 +266,11 @@ public abstract class BaseDAO<T> {
         Field[] fields = clazz.getDeclaredFields();
         for (Field field : fields) {
             //实体类上数据库真实字段名
-            String value = field.getAnnotation(DbField.class).value();
-            map.put(value, field.getName());
+            DbField dbField = field.getAnnotation(DbField.class);
+            if(dbField != null){
+                String value = dbField.value();
+                map.put(value, field.getName());
+            }
         }
         return map;
     }
