@@ -30,5 +30,7 @@ public class UserIp {
     @DbField("ip_low_lightness")
     private Integer ipLowLightness;
 
-
+    public UserIp(Integer userIpId) {
+        this.userIpId = userIpId;
+    }
 }
