@@ -41,11 +41,11 @@ public class UserController {
         String password = params.getString("password");
         boolean phoneExited = userService.isPhoneExited(phoneNumber);
         if (phoneExited) {
-            return ApiMsg.userAlreadyExist("该账号已存在，请更换注册手机号码");
+            return ApiMsg.alreadyExist("该账号已存在，请更换注册手机号码");
         }
         boolean usernameExited = userService.isUsernameExited(username);
         if (usernameExited) {
-            return ApiMsg.userAlreadyExist("该用户名已被占用");
+            return ApiMsg.alreadyExist("该用户名已被占用");
         }
         boolean b = userService.register(username, phoneNumber, password);
         if (b) {

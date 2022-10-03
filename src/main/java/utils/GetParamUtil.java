@@ -102,7 +102,6 @@ public class GetParamUtil {
      */
     public static JSONObject getJsonByForm(HttpServletRequest req) {
         JSONObject json = new JSONObject();
-        System.out.println(req.getParameterMap());
         Map<String, String[]> parameterMap = req.getParameterMap();
         for (Map.Entry<String, String[]> entry : parameterMap.entrySet()) {
             json.put(entry.getKey(), entry.getValue()[0]);
@@ -112,9 +111,7 @@ public class GetParamUtil {
 
     /**
      * 通过from表单获取参数封装到JSONObject中,
-     * 将上传的文件(图片)保存到本地,并将形如
-     * "file1":"D:\\program\\testFileLoad\\b2a573a86a2c4fb49dd7a920feae4dd0.jpeg"
-     * 格式的信息封装到JSONObject中一并返回
+     * 将上传的文件(图片)保存到本地,并将形如"file1":"b2a573a86a2c4fb49dd7a920feae4dd0.jpeg"格式的信息封装到JSONObject中一并返回
      *
      * @param request
      * @return
@@ -136,7 +133,7 @@ public class GetParamUtil {
                 } else {
                     //文件类型数据
                     String[] contentType = fileItem.getContentType().split("/");
-                    String savePath = "D:\\program\\testFileLoad\\" + UuidUtil.getHashCode() + "." + contentType[1];
+                    String savePath = "D:\\program\\upload\\" + UuidUtil.getHashCode() + "." + contentType[1];
                     System.out.println("save at:" + savePath);
                     InputStream inputStream = fileItem.getInputStream();
                     FileOutputStream outputStream = new FileOutputStream(savePath);
@@ -148,7 +145,7 @@ public class GetParamUtil {
                     fileNum = fileNum + 1;
                     inputStream.close();
                     outputStream.close();
-                    json.put("file" + fileNum.toString(), savePath);
+                    json.put("file" + fileNum.toString(), UuidUtil.getHashCode() + "." + contentType[1]);
                 }
             }
         } catch (Exception e) {

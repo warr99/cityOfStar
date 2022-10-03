@@ -41,4 +41,9 @@ public class UserService {
         }
         return true;
     }
+
+    public User getUserById(Integer userId) {
+        User user = userDAO.getUserById(userId);
+        return user;
+    }
 }

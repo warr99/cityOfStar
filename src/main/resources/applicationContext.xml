@@ -12,14 +12,23 @@
 <beans>
     <!-- dao -->
     <bean id="userDAO" class="dao.impl.UserDaoImpl"/>
+    <bean id="pictureBookDAO" class="dao.impl.PictureBookDaoImpl"/>
 
     <!-- service -->
     <bean id="userService" class="service.UserService">
         <property name="userDAO" ref="userDAO"/>
     </bean>
+    <bean id="pictureBookService" class="service.PictureBookService">
+        <property name="pictureBookDAO" ref="pictureBookDAO"/>
+    </bean>
 
     <!-- controller -->
     <bean id="user" class="controller.UserController">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+    <bean id="pictureBook" class="controller.PictureBookController">
+        <property name="pictureBookService" ref="pictureBookService"/>
         <property name="userService" ref="userService"/>
     </bean>
 </beans>

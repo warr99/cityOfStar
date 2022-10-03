@@ -5,7 +5,6 @@ import dao.api.UserDAO;
 import pojo.po.User;
 import utils.MD5Util;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 
 /**
  * @author WARRIOR
@@ -36,5 +35,10 @@ public class UserDaoImpl extends BaseDAO<User> implements UserDAO {
     @Override
     public User getUserByUsername(String username) {
         return super.load("select * from tb_user where user_name = ? ", username);
+    }
+
+    @Override
+    public User getUserById(Integer userId) {
+        return super.load("select * from tb_user where user_id = ? ", userId);
     }
 }

@@ -34,7 +34,12 @@ public class User {
     private String userStatus;
 
     private List<Story> userStoryList;
+    private List<PictureBook> pictureBookList;
 
+
+    public User(Integer userId) {
+        this.userId = userId;
+    }
 
     public User(Integer userId, String username, String phoneNumber, String password, String headPortrait, String userSex, String userStatus) {
         this.userId = userId;

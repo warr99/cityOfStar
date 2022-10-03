@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class PictureBook {
     @DbField("picture_book_id")
-    private String pictureBookId;
+    private Integer pictureBookId;
     @DbField("user_id")
     private User user;
     @DbField("picture_book_name")
@@ -26,7 +26,7 @@ public class PictureBook {
     private List<PictureBookImg> pictureBookImgList;
     private List<PictureBookMusic> pictureBookMusicList;
 
-    public PictureBook(String pictureBookId, User user, String pictureBookName, Integer pageSize) {
+    public PictureBook(Integer pictureBookId, User user, String pictureBookName, Integer pageSize) {
         this.pictureBookId = pictureBookId;
         this.user = user;
         this.pictureBookName = pictureBookName;

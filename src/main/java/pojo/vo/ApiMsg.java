@@ -86,7 +86,7 @@ public class ApiMsg<T> implements Serializable {
     public static <T> ApiMsg<T> userError(String message) {
         return new ApiMsg<>(ApiInfo.MISMATCH, message);
     }
-    public static <T> ApiMsg<T> userAlreadyExist(String message) {
+    public static <T> ApiMsg<T> alreadyExist(String message) {
         return new ApiMsg<>(ApiInfo.EXIST, message);
     }
 
