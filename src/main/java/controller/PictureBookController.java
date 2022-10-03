@@ -18,10 +18,14 @@ public class PictureBookController {
     UserService userService = null;
 
     public ApiMsg addPictureBookImg(HttpServletRequest req, HttpServletResponse resp, JSONObject params) {
-        Integer userId = params.getInteger("userId");
+        Integer pictureBookId = params.getInteger("pictureBookId");
         String savePath = params.getString("file1");
         String position = params.getString("position");
         Integer pageNum = params.getInteger("pageNum");
+        boolean b = pictureBookService.addPictureBookImg(pictureBookId, savePath, position, pageNum);
+        if (!b) {
+            return ApiMsg.exception("添加失败");
+        }
         return new ApiMsg<>();
     }
 

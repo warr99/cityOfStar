@@ -28,6 +28,13 @@ public interface PictureBookDAO {
      */
     public PictureBook getUserPictureBookByName(String pictureBookName, Integer userId);
 
+    /**
+     * 根据绘本id获取绘本
+     *
+     * @param pictureBookId
+     * @return
+     */
+    public PictureBook getPictureBookById(Integer pictureBookId);
 
     /**
      * 为绘本添加图片
@@ -35,5 +42,5 @@ public interface PictureBookDAO {
      * @param pictureBookImg
      * @return
      */
-    public Integer addPictureBookPImg(PictureBookImg pictureBookImg);
+    public Integer addPictureBookImg(PictureBookImg pictureBookImg);
 }

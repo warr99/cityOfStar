@@ -23,7 +23,16 @@ public class PictureBookDaoImpl extends BaseDAO<PictureBook> implements PictureB
     }
 
     @Override
-    public Integer addPictureBookPImg(PictureBookImg pictureBookImg) {
-        return null;
+    public PictureBook getPictureBookById(Integer pictureBookId) {
+        return super.load("select * from tb_picture_book where picture_book_id = ? ", pictureBookId);
+    }
+
+    @Override
+    public Integer addPictureBookImg(PictureBookImg pictureBookImg) {
+        return executeUpdate("insert into tb_picture_book_img (page, position, picture_book_img_url, picture_book_id) value (?,?,?,?)",
+                pictureBookImg.getPage(),
+                pictureBookImg.getPosition(),
+                pictureBookImg.getPictureBookImgUrl(),
+                pictureBookImg.getPictureBook().getPictureBookId());
     }
 }
